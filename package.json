@@ -1,0 +1,24 @@
+{
+  "name": "isprod",
+  "version": "1.0.0",
+  "description": "Determine if runmode is production.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Linkeo",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linkeo/isprod.git"
+  },
+  "keywords": [
+    "env",
+    "args",
+    "runmode"
+  ],
+  "bugs": {
+    "url": "https://github.com/linkeo/isprod/issues"
+  },
+  "homepage": "https://github.com/linkeo/isprod#readme"
+}
