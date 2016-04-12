@@ -6,13 +6,43 @@ npm install --save isprod
 
 ## Usage
 
-``` sh
-RUNMODE=prod app # set runmode via env
-app --prod # set runmode via args
+```
+env.prod:   RUNMODE=prod|product|production
+        or  NODE_ENV=prod|product|production
+
+env.dev:    RUNMODE=dev|develop|development
+        or  NODE_ENV=dev|develop|development
+
+arg.prod:   --prod|--product|--production
+
+arg.dev:    --dev|--develop|--development
+
+priority:   arg.prod > arg.dev > env.prod > env.dev
 ```
 
+
+arg.prod    | arg.dev   | env.prod  | env.dev   |    | result
+------------|-----------|-----------|-----------|----|-------
+no          | no        | no        | no        |    | false
+no          | no        | no        | yes       |    | false
+no          | no        | yes       | no        |    | true
+no          | no        | yes       | yes       |    | true
+no          | yes       | no        | no        |    | false
+no          | yes       | no        | yes       |    | false
+no          | yes       | yes       | no        |    | false
+no          | yes       | yes       | yes       |    | false
+yes         | no        | no        | no        |    | true
+yes         | no        | no        | yes       |    | true
+yes         | no        | yes       | no        |    | true
+yes         | no        | yes       | yes       |    | true
+yes         | yes       | no        | no        |    | true
+yes         | yes       | no        | yes       |    | true
+yes         | yes       | yes       | no        |    | true
+yes         | yes       | yes       | yes       |    | true
+
+
 ```js
-var is_prod = require('isprod');
+var is_prod = require('isprod'); // boolean
 ```
 
 ## Example
